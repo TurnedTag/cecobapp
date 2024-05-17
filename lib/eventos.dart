@@ -8,7 +8,7 @@ class Eventos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffD9FDFF),
+      backgroundColor: Color(0xFF236BBE),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,7 +21,7 @@ class Eventos extends StatelessWidget {
                 child: Text(
                   'CECOB Eventos',
                   style: TextStyle(
-                    color: Color(0xff9CD5FF),
+                    color: Color(0xFF236BBE),
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
@@ -54,7 +54,7 @@ class Eventos extends StatelessWidget {
                     width: 400,
                     child: Row(
                       children: [
-                        SizedBox(width: 10), 
+                        SizedBox(width: 10),
                         Text(
                           "Pré Banca",
                           style: TextStyle(
@@ -74,7 +74,7 @@ class Eventos extends StatelessWidget {
                     width: 400,
                     child: Row(
                       children: [
-                        SizedBox(width: 10), 
+                        SizedBox(width: 10),
                         Text(
                           "Pré Banca",
                           style: TextStyle(
@@ -87,188 +87,205 @@ class Eventos extends StatelessWidget {
                 ),
               ],
             ),
-                        SizedBox(height: 475),
-
-             Column(
-  children: [
-                            SizedBox(height: 40),
-
-    Padding(
-      padding: const EdgeInsets.only(left: 0),
-      child: Container(
-        color: Colors.white,
-        height: 80, 
-        width: 450, 
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
+            SizedBox(height: 475),
             Column(
               children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Destaque()));
-                  },
-                  icon: Column(
-                    children: [
-                      Icon(Icons.local_activity, color: Colors.black, size: 20), // Reduzi o tamanho do ícone
-                      SizedBox(height: 3), // Reduzi o espaçamento vertical
-                      Text(
-                        "Destaques",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 5, // Reduzi o tamanho do texto
+                SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.only(left: 0),
+                  child: Container(
+                    color: Colors.black,
+                    height: 80,
+                    width: 450,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Destaque()));
+                              },
+                              icon: Column(
+                                children: [
+                                  Icon(Icons.local_activity,
+                                      color: Colors.black,
+                                      size: 20), // Reduzi o tamanho do ícone
+                                  SizedBox(
+                                      height:
+                                          3), // Reduzi o espaçamento vertical
+                                  Text(
+                                    "Destaques",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 5, // Reduzi o tamanho do texto
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              label: SizedBox.shrink(),
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.white,
+                                onPrimary: Colors.black,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      8.0), // Reduzi o raio da borda
+                                ),
+                                elevation: 2,
+                                fixedSize:
+                                    Size(60, 35), // Reduzi o tamanho do botão
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                  label: SizedBox.shrink(),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0), // Reduzi o raio da borda
+                        Column(
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => melhoria()));
+                              },
+                              icon: Column(
+                                children: [
+                                  Icon(Icons.trending_up,
+                                      color: Colors.black, size: 20),
+                                  SizedBox(height: 3),
+                                  Text(
+                                    "Melhoria",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 5,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              label: SizedBox.shrink(),
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.white,
+                                onPrimary: Colors.black,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                elevation: 2,
+                                fixedSize: Size(60, 35),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Inicio()));
+                              },
+                              icon: Column(
+                                children: [
+                                  Icon(Icons.location_city,
+                                      color: Colors.black, size: 20),
+                                  SizedBox(height: 3),
+                                  Text(
+                                    "Bairro",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 5,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              label: SizedBox.shrink(),
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.white,
+                                onPrimary: Colors.black,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                elevation: 2,
+                                fixedSize: Size(60, 35),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => atividade()));
+                              },
+                              icon: Column(
+                                children: [
+                                  Icon(Icons.cleaning_services,
+                                      color: Colors.black, size: 20),
+                                  SizedBox(height: 3),
+                                  Text(
+                                    "Atividade",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 5,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              label: SizedBox.shrink(),
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.white,
+                                onPrimary: Colors.black,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                elevation: 2,
+                                fixedSize: Size(60, 35),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: () {},
+                              icon: Column(
+                                children: [
+                                  Icon(Icons.event,
+                                      color: Colors.black, size: 20),
+                                  SizedBox(height: 3),
+                                  Text(
+                                    "Eventos",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 5,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              label: SizedBox.shrink(),
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.white,
+                                onPrimary: Colors.black,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                elevation: 2,
+                                fixedSize: Size(60, 35),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    elevation: 2,
-                    fixedSize: Size(60, 35), // Reduzi o tamanho do botão
                   ),
                 ),
               ],
             ),
-            Column(
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => melhoria()));
-                  },
-                  icon: Column(
-                    children: [
-                      Icon(Icons.trending_up, color: Colors.black, size: 20),
-                      SizedBox(height: 3),
-                      Text(
-                        "Melhoria",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 5,
-                        ),
-                      ),
-                    ],
-                  ),
-                  label: SizedBox.shrink(),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    elevation: 2,
-                    fixedSize: Size(60, 35),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Inicio()));
-
-                  },
-                  icon: Column(
-                    children: [
-                      Icon(Icons.location_city, color: Colors.black, size: 20),
-                      SizedBox(height: 3),
-                      Text(
-                        "Bairro",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 5,
-                        ),
-                      ),
-                    ],
-                  ),
-                  label: SizedBox.shrink(),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    elevation: 2,
-                    fixedSize: Size(60, 35),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => atividade()));
-                  },
-                  icon: Column(
-                    children: [
-                      Icon(Icons.cleaning_services, color: Colors.black, size: 20),
-                      SizedBox(height: 3),
-                      Text(
-                        "Atividade",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 5,
-                        ),
-                      ),
-                    ],
-                  ),
-                  label: SizedBox.shrink(),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    elevation: 2,
-                    fixedSize: Size(60, 35),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                  },
-                  icon: Column(
-                    children: [
-                      Icon(Icons.event, color: Colors.black, size: 20),
-                      SizedBox(height: 3),
-                      Text(
-                        "Eventos",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 5,
-                        ),
-                      ),
-                    ],
-                  ),
-                  label: SizedBox.shrink(),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    elevation: 2,
-                    fixedSize: Size(60, 35),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    ),
-  ],
-),
-
           ],
         ),
       ),

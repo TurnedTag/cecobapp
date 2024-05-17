@@ -12,13 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffD9FDFF),
+      backgroundColor: Color(0xFF236BBE),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-                        SizedBox(height: 20),
- 
+            SizedBox(height: 20),
             Container(
               child: Image.asset("assets/logo.png"),
               height: 200,
@@ -60,7 +59,8 @@ class MyApp extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Atencao()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Atencao()));
               },
               style: ElevatedButton.styleFrom(
                 primary: Color(0xff9181F4),
@@ -131,7 +131,8 @@ class MyApp extends StatelessWidget {
             SizedBox(height: 20),
             TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Login()));
               },
               child: Text(
                 'Não tem conta? Crie uma',
@@ -140,7 +141,6 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
-            
           ],
         ),
       ),
