@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, file_names, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
@@ -8,19 +10,21 @@ import 'package:teste/destaque.dart';
 import 'package:teste/eventos.dart';
 import 'package:teste/melhoria.dart';
 
+// ignore: use_key_in_widget_constructors
 class Inicio extends StatefulWidget {
   @override
   _InicioState createState() => _InicioState();
 }
 
 class _InicioState extends State<Inicio> {
+  // ignore: unused_field
   GoogleMapController? _mapController;
   LatLng? _initialPosition;
 
   @override
   void initState() {
     super.initState();
-    _setInitialPosition('22250-110'); // Substitua pelo CEP inicial
+    _setInitialPosition('22250-110');
   }
 
   Future<void> _setInitialPosition(String cep) async {
@@ -35,7 +39,7 @@ class _InicioState extends State<Inicio> {
   }
 
   Future<LatLng?> getLatLngFromCep(String cep) async {
-    final apiKey = 'CRyzEbOjIm4D6VTg7YKiY4ZdrKPxMp8D2NV7q_IJdFE';
+    const apiKey = 'CRyzEbOjIm4D6VTg7YKiY4ZdrKPxMp8D2NV7q_IJdFE';
     final url =
         'https://geocode.search.hereapi.com/v1/geocode?q=$cep&apiKey=$apiKey';
 
@@ -62,14 +66,14 @@ class _InicioState extends State<Inicio> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffD9FDFF),
+      backgroundColor: const Color(0xffD9FDFF),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 60),
-            Text(
+            const SizedBox(height: 60),
+            const Text(
               'CECOB Bairro',
               style: TextStyle(
                 color: Color(0xff9CD5FF),
@@ -77,13 +81,13 @@ class _InicioState extends State<Inicio> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               width: 400,
               height: 300,
               color: Colors.blue.shade200,
               child: _initialPosition == null
-                  ? Center(child: CircularProgressIndicator())
+                  ? const Center(child: CircularProgressIndicator())
                   : GoogleMap(
                       onMapCreated: (controller) {
                         _mapController = controller;
@@ -94,17 +98,17 @@ class _InicioState extends State<Inicio> {
                       ),
                     ),
             ),
-            SizedBox(height: 60),
+            const SizedBox(height: 60),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    fixedSize: Size(180, 60),
+                    backgroundColor: Colors.blue,
+                    fixedSize: const Size(180, 60),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Recomendações',
                     style: TextStyle(
                       color: Colors.black,
@@ -112,17 +116,17 @@ class _InicioState extends State<Inicio> {
                     ),
                   ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Inicio2()));
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    fixedSize: Size(180, 60),
+                    backgroundColor: Colors.blue,
+                    fixedSize: const Size(180, 60),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Vamos melhorar',
                     style: TextStyle(
                       color: Colors.black,
@@ -132,7 +136,7 @@ class _InicioState extends State<Inicio> {
                 ),
               ],
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
               width: 1100,
               height: 290,
@@ -140,28 +144,28 @@ class _InicioState extends State<Inicio> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Recomendações",
+                  const Text("Recomendações",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: 30,
                       )),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.person,
                           color: Colors.black,
                         ),
-                        SizedBox(width: 8.0),
+                        const SizedBox(width: 8.0),
                         Container(
                           width: 350,
                           height: 30,
                           color: Colors.black,
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
                               "Escola Ort, endereço: Rua Dona Mariana 213, botafogo.",
@@ -174,22 +178,22 @@ class _InicioState extends State<Inicio> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.person,
                           color: Colors.black,
                         ),
-                        SizedBox(width: 8.0),
+                        const SizedBox(width: 8.0),
                         Container(
                           width: 350,
                           height: 30,
                           color: Colors.black,
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
                               "Escola Ort, endereço: Rua Dona Mariana 213, botafogo.",
@@ -202,22 +206,22 @@ class _InicioState extends State<Inicio> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.person,
                           color: Colors.black,
                         ),
-                        SizedBox(width: 8.0),
+                        const SizedBox(width: 8.0),
                         Container(
                           width: 350,
                           height: 30,
                           color: Colors.black,
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text(
                               "Escola Ort, endereço: Rua Dona Mariana 213, botafogo.",
@@ -253,7 +257,7 @@ class _InicioState extends State<Inicio> {
                                     MaterialPageRoute(
                                         builder: (context) => Destaque()));
                               },
-                              icon: Column(
+                              icon: const Column(
                                 children: [
                                   Icon(Icons.local_activity,
                                       color: Colors.black,
@@ -270,17 +274,17 @@ class _InicioState extends State<Inicio> {
                                   ),
                                 ],
                               ),
-                              label: SizedBox.shrink(),
+                              label: const SizedBox.shrink(),
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.white,
-                                onPrimary: Colors.black,
+                                foregroundColor: Colors.black,
+                                backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(
                                       8.0), // Reduzi o raio da borda
                                 ),
                                 elevation: 2,
-                                fixedSize:
-                                    Size(60, 35), // Reduzi o tamanho do botão
+                                fixedSize: const Size(
+                                    60, 35), // Reduzi o tamanho do botão
                               ),
                             ),
                           ],
@@ -294,7 +298,7 @@ class _InicioState extends State<Inicio> {
                                     MaterialPageRoute(
                                         builder: (context) => melhoria()));
                               },
-                              icon: Column(
+                              icon: const Column(
                                 children: [
                                   Icon(Icons.trending_up,
                                       color: Colors.black, size: 20),
@@ -308,15 +312,15 @@ class _InicioState extends State<Inicio> {
                                   ),
                                 ],
                               ),
-                              label: SizedBox.shrink(),
+                              label: const SizedBox.shrink(),
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.white,
-                                onPrimary: Colors.black,
+                                foregroundColor: Colors.black,
+                                backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 elevation: 2,
-                                fixedSize: Size(60, 35),
+                                fixedSize: const Size(60, 35),
                               ),
                             ),
                           ],
@@ -325,7 +329,7 @@ class _InicioState extends State<Inicio> {
                           children: [
                             ElevatedButton.icon(
                               onPressed: () {},
-                              icon: Column(
+                              icon: const Column(
                                 children: [
                                   Icon(Icons.location_city,
                                       color: Colors.black, size: 20),
@@ -339,15 +343,15 @@ class _InicioState extends State<Inicio> {
                                   ),
                                 ],
                               ),
-                              label: SizedBox.shrink(),
+                              label: const SizedBox.shrink(),
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.white,
-                                onPrimary: Colors.black,
+                                foregroundColor: Colors.black,
+                                backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 elevation: 2,
-                                fixedSize: Size(60, 35),
+                                fixedSize: const Size(60, 35),
                               ),
                             ),
                           ],
@@ -361,7 +365,7 @@ class _InicioState extends State<Inicio> {
                                     MaterialPageRoute(
                                         builder: (context) => atividade()));
                               },
-                              icon: Column(
+                              icon: const Column(
                                 children: [
                                   Icon(Icons.cleaning_services,
                                       color: Colors.black, size: 20),
@@ -375,15 +379,15 @@ class _InicioState extends State<Inicio> {
                                   ),
                                 ],
                               ),
-                              label: SizedBox.shrink(),
+                              label: const SizedBox.shrink(),
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.white,
-                                onPrimary: Colors.black,
+                                foregroundColor: Colors.black,
+                                backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 elevation: 2,
-                                fixedSize: Size(60, 35),
+                                fixedSize: const Size(60, 35),
                               ),
                             ),
                           ],
@@ -397,7 +401,7 @@ class _InicioState extends State<Inicio> {
                                     MaterialPageRoute(
                                         builder: (context) => Eventos()));
                               },
-                              icon: Column(
+                              icon: const Column(
                                 children: [
                                   Icon(Icons.event,
                                       color: Colors.black, size: 20),
@@ -411,15 +415,15 @@ class _InicioState extends State<Inicio> {
                                   ),
                                 ],
                               ),
-                              label: SizedBox.shrink(),
+                              label: const SizedBox.shrink(),
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.white,
-                                onPrimary: Colors.black,
+                                foregroundColor: Colors.black,
+                                backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 elevation: 2,
-                                fixedSize: Size(60, 35),
+                                fixedSize: const Size(60, 35),
                               ),
                             ),
                           ],
