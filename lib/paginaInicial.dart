@@ -1,12 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:teste/PaginaInicial2.dart';
 import 'package:teste/atividade.dart';
 import 'package:teste/destaque.dart';
 import 'package:teste/eventos.dart';
 import 'package:teste/melhoria.dart';
 
-class Inicio extends StatelessWidget {
+class Inicio extends StatefulWidget {
+  @override
+  _InicioState createState() => _InicioState();
+}
+
+class _InicioState extends State<Inicio> {
+  GoogleMapController? _mapController;
+  LatLng? _initialPosition;
+
+  @override
+  void initState() {
+    super.initState();
+    _setInitialPosition('22250-110'); // Substitua pelo CEP inicial
+  }
+
+  Future<void> _setInitialPosition(String cep) async {
+    final location = await getLatLngFromCep(cep);
+    if (location != null) {
+      setState(() {
+        _initialPosition = location;
+      });
+    } else {
+      print('Não foi possível obter a localização');
+    }
+  }
+
+  Future<LatLng?> getLatLngFromCep(String cep) async {
+    final apiKey = 'CRyzEbOjIm4D6VTg7YKiY4ZdrKPxMp8D2NV7q_IJdFE';
+    final url =
+        'https://geocode.search.hereapi.com/v1/geocode?q=$cep&apiKey=$apiKey';
+
+    final response = await http.get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      final json = jsonDecode(response.body);
+
+      if (json['items'] != null && json['items'].isNotEmpty) {
+        final location = json['items'][0]['position'];
+        final lat = location['lat'];
+        final lng = location['lng'];
+        return LatLng(lat, lng);
+      } else {
+        print('Erro na resposta do Geocoding API');
+        return null;
+      }
+    } else {
+      print('Erro na requisição HTTP: ${response.statusCode}');
+      return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,10 +82,17 @@ class Inicio extends StatelessWidget {
               width: 400,
               height: 300,
               color: Colors.blue.shade200,
-              child: GoogleMap(
-                  initialCameraPosition: CameraPosition(
-                      target: LatLng(-22.955779274882516, -43.18715381860818),
-                      zoom: 16)),
+              child: _initialPosition == null
+                  ? Center(child: CircularProgressIndicator())
+                  : GoogleMap(
+                      onMapCreated: (controller) {
+                        _mapController = controller;
+                      },
+                      initialCameraPosition: CameraPosition(
+                        target: _initialPosition!,
+                        zoom: 16,
+                      ),
+                    ),
             ),
             SizedBox(height: 60),
             Row(
