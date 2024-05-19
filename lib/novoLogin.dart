@@ -1,7 +1,6 @@
-// ignore_for_file: avoid_print, sized_box_for_whitespace, sort_child_properties_last, use_key_in_widget_constructors, library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
-import 'apiService.dart'; // Importe o ApiService
+import 'apiService.dart';
+import 'main.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -28,17 +27,42 @@ class _LoginState extends State<Login> {
     final confirmPassword = _confirmPasswordController.text;
 
     if (password != confirmPassword) {
-      print("As senhas não coincidem");
+      _showDialog("Erro", "As senhas não coincidem", false);
       return;
     }
 
     final response = await _apiService.register(username, email, password, cep);
 
     if (response != null) {
-      print('Registro bem-sucedido: $response');
+      _showDialog("Sucesso", "Registro bem-sucedido", true);
     } else {
-      print('Falha no registro');
+      _showDialog("Erro", "Falha no registro", false);
     }
+  }
+
+  void _showDialog(String title, String message, bool success) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(message),
+          actions: [
+            TextButton(
+              child: Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+                if (success) {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => MyApp()),
+                  );
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -50,13 +74,13 @@ class _LoginState extends State<Login> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Container(
                 child: Image.asset("assets/logo.png"),
                 height: 220,
                 width: 220,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -70,12 +94,12 @@ class _LoginState extends State<Login> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
+                padding: EdgeInsets.symmetric(horizontal: 50),
                 child: TextField(
                   controller: _usernameController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Nome de Usuário',
                     fillColor: Color(0xff9CD5FF),
                     filled: true,
@@ -83,12 +107,12 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
+                padding: EdgeInsets.symmetric(horizontal: 50),
                 child: TextField(
                   controller: _emailController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Email',
                     fillColor: Color(0xff9CD5FF),
                     filled: true,
@@ -96,12 +120,12 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
+                padding: EdgeInsets.symmetric(horizontal: 50),
                 child: TextField(
                   controller: _cepController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'CEP',
                     fillColor: Color(0xff9CD5FF),
                     filled: true,
@@ -109,12 +133,12 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
+                padding: EdgeInsets.symmetric(horizontal: 50),
                 child: TextField(
                   controller: _phoneController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Telefone',
                     fillColor: Color(0xff9CD5FF),
                     filled: true,
@@ -122,12 +146,12 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
+                padding: EdgeInsets.symmetric(horizontal: 50),
                 child: TextField(
                   controller: _passwordController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Senha',
                     fillColor: Color(0xff9CD5FF),
                     filled: true,
@@ -136,12 +160,12 @@ class _LoginState extends State<Login> {
                   obscureText: true,
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
+                padding: EdgeInsets.symmetric(horizontal: 50),
                 child: TextField(
                   controller: _confirmPasswordController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: 'Confirmar senha',
                     fillColor: Color(0xff9CD5FF),
                     filled: true,
@@ -150,14 +174,14 @@ class _LoginState extends State<Login> {
                   obscureText: true,
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _register,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff9181F4),
-                  fixedSize: const Size(150, 70),
+                  primary: Color(0xff9181F4),
+                  fixedSize: Size(150, 70),
                 ),
-                child: const Text(
+                child: Text(
                   'Entrar',
                   style: TextStyle(
                     color: Colors.white,
@@ -174,7 +198,7 @@ class _LoginState extends State<Login> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: const Icon(Icons.arrow_back),
+                        icon: Icon(Icons.arrow_back),
                       )
                     ],
                   )
