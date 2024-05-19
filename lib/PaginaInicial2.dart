@@ -179,7 +179,7 @@ class Inicio2 extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 0),
                   child: Container(
-                    color: Colors.white,
+                    color: Colors.black,
                     height: 80,
                     width: 450,
                     child: Row(

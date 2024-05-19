@@ -13,7 +13,6 @@ class _LoginState extends State<Login> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _cepController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
@@ -22,7 +21,6 @@ class _LoginState extends State<Login> {
     final username = _usernameController.text;
     final email = _emailController.text;
     final cep = _cepController.text;
-    final phone = _phoneController.text;
     final password = _passwordController.text;
     final confirmPassword = _confirmPasswordController.text;
 
@@ -127,19 +125,6 @@ class _LoginState extends State<Login> {
                   controller: _cepController,
                   decoration: InputDecoration(
                     hintText: 'CEP',
-                    fillColor: Color(0xff9CD5FF),
-                    filled: true,
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 50),
-                child: TextField(
-                  controller: _phoneController,
-                  decoration: InputDecoration(
-                    hintText: 'Telefone',
                     fillColor: Color(0xff9CD5FF),
                     filled: true,
                     border: OutlineInputBorder(),

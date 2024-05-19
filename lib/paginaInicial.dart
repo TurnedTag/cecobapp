@@ -66,7 +66,7 @@ class _InicioState extends State<Inicio> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffD9FDFF),
+      backgroundColor: const Color(0xFF236BBE),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -109,7 +109,7 @@ class _InicioState extends State<Inicio> {
                     fixedSize: const Size(180, 60),
                   ),
                   child: const Text(
-                    'Recomendações',
+                    'Destaques',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -127,7 +127,7 @@ class _InicioState extends State<Inicio> {
                     fixedSize: const Size(180, 60),
                   ),
                   child: const Text(
-                    'Vamos melhorar',
+                    'Melhorias',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -242,7 +242,7 @@ class _InicioState extends State<Inicio> {
                 Padding(
                   padding: const EdgeInsets.only(left: 0),
                   child: Container(
-                    color: Colors.white,
+                    color: Colors.black,
                     height: 80,
                     width: 450,
                     child: Row(
