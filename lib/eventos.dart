@@ -51,7 +51,7 @@ class Eventos extends StatelessWidget {
                   child: Container(
                     color: Colors.black,
                     height: 40,
-                    width: 400,
+                    width: 350,
                     child: Row(
                       children: [
                         SizedBox(width: 10),
@@ -71,7 +71,7 @@ class Eventos extends StatelessWidget {
                   child: Container(
                     color: Colors.black,
                     height: 40,
-                    width: 400,
+                    width: 350,
                     child: Row(
                       children: [
                         SizedBox(width: 10),
@@ -87,7 +87,7 @@ class Eventos extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 475),
+            SizedBox(height: 388),
             Column(
               children: [
                 SizedBox(height: 40),

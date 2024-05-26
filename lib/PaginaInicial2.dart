@@ -27,8 +27,8 @@ class Inicio2 extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Container(
-              width: 400,
-              height: 300,
+              width: 370,
+              height: 270,
               color: Colors.blue.shade200,
               child: GoogleMap(
                   initialCameraPosition: CameraPosition(
@@ -46,10 +46,10 @@ class Inicio2 extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
-                    fixedSize: Size(180, 60),
+                    fixedSize: Size(150, 60),
                   ),
                   child: Text(
-                    'Recomendações',
+                    'Destaques',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -61,10 +61,10 @@ class Inicio2 extends StatelessWidget {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
-                    fixedSize: Size(180, 60),
+                    fixedSize: Size(150, 60),
                   ),
                   child: Text(
-                    'Vamos melhorar',
+                    'Melhorias',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -75,8 +75,8 @@ class Inicio2 extends StatelessWidget {
             ),
             SizedBox(height: 30),
             Container(
-              width: 1100,
-              height: 290,
+              width: 390,
+              height: 235,
               color: Colors.blue.shade200,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,7 +99,7 @@ class Inicio2 extends StatelessWidget {
                         ),
                         SizedBox(width: 8.0),
                         Container(
-                          width: 350,
+                          width: 300,
                           height: 30,
                           color: Colors.black,
                           child: Padding(
@@ -127,7 +127,7 @@ class Inicio2 extends StatelessWidget {
                         ),
                         SizedBox(width: 8.0),
                         Container(
-                          width: 350,
+                          width: 300,
                           height: 30,
                           color: Colors.black,
                           child: Padding(
@@ -155,7 +155,7 @@ class Inicio2 extends StatelessWidget {
                         ),
                         SizedBox(width: 8.0),
                         Container(
-                          width: 350,
+                          width: 300,
                           height: 30,
                           color: Colors.black,
                           child: Padding(

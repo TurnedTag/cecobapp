@@ -83,8 +83,8 @@ class _InicioState extends State<Inicio> {
             ),
             const SizedBox(height: 20),
             Container(
-              width: 400,
-              height: 300,
+              width: 370,
+              height: 270,
               color: Colors.blue.shade200,
               child: _initialPosition == null
                   ? const Center(child: CircularProgressIndicator())
@@ -106,7 +106,7 @@ class _InicioState extends State<Inicio> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
-                    fixedSize: const Size(180, 60),
+                    fixedSize: const Size(150, 60),
                   ),
                   child: const Text(
                     'Destaques',
@@ -124,7 +124,7 @@ class _InicioState extends State<Inicio> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
-                    fixedSize: const Size(180, 60),
+                    fixedSize: const Size(150, 60),
                   ),
                   child: const Text(
                     'Melhorias',
@@ -138,8 +138,8 @@ class _InicioState extends State<Inicio> {
             ),
             const SizedBox(height: 30),
             Container(
-              width: 1100,
-              height: 290,
+              width: 390,
+              height: 235,
               color: Colors.blue.shade200,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,7 +162,7 @@ class _InicioState extends State<Inicio> {
                         ),
                         const SizedBox(width: 8.0),
                         Container(
-                          width: 350,
+                          width: 300,
                           height: 30,
                           color: Colors.black,
                           child: const Padding(
@@ -190,7 +190,7 @@ class _InicioState extends State<Inicio> {
                         ),
                         const SizedBox(width: 8.0),
                         Container(
-                          width: 350,
+                          width: 300,
                           height: 30,
                           color: Colors.black,
                           child: const Padding(
@@ -218,7 +218,7 @@ class _InicioState extends State<Inicio> {
                         ),
                         const SizedBox(width: 8.0),
                         Container(
-                          width: 350,
+                          width: 300,
                           height: 30,
                           color: Colors.black,
                           child: const Padding(

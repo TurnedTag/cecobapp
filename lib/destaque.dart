@@ -522,7 +522,7 @@ class _DestaqueState extends State<Destaque> {
                 ),
               ],
             ),
-            SizedBox(height: 3),
+            SizedBox(height: 0),
           ],
         ),
       ),
