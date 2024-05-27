@@ -10,7 +10,6 @@ import '../providers/auth_provider.dart';
 import '../components/custom_header.dart';
 import '../components/top_activities.dart';
 import '../components/custom_map_view.dart';
-import '../components/custom_button_row.dart';
 import '../components/custom_bottom_nav.dart';
 import 'package:teste/pages/melhoria_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -125,29 +124,6 @@ class _PaginaInicialState extends State<PaginaInicial> {
               initialPosition: _initialPosition,
               onMapCreated: (controller) {
                 // Store the map controller if needed
-              },
-            ),
-            const SizedBox(height: 60),
-            CustomButtonRow(
-              onDestaquesPressed: () {
-                /*
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Destaque(),
-                  ),
-                );
-                */
-              },
-              onMelhoriasPressed: () {
-                /*
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const PaginaInicial2(),
-                  ),
-                );
-                */
               },
             ),
             const SizedBox(height: 30),

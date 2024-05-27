@@ -50,7 +50,7 @@ class CustomBottomNav extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
                   backgroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
@@ -60,13 +60,16 @@ class CustomBottomNav extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(item.icon, size: 24, color: Colors.black),
-                    const SizedBox(height: 4),
-                    Text(
-                      item.text,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
+                    const SizedBox(height: 2),
+                    Flexible(
+                      child: Text(
+                        item.text,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],
